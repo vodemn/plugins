@@ -348,7 +348,7 @@ typedef NS_ENUM(NSInteger, ImagePickerClassType) { UIImagePickerClassType, PHPic
   if (![imageQuality isKindOfClass:[NSNumber class]]) {
     imageQuality = @1;
   } else if (imageQuality.intValue < 0 || imageQuality.intValue > 100) {
-    imageQuality = [NSNumber numberWithInt:1];
+    imageQuality = @1;
   } else {
     imageQuality = @([imageQuality floatValue] / 100);
   }
@@ -460,7 +460,7 @@ typedef NS_ENUM(NSInteger, ImagePickerClassType) { UIImagePickerClassType, PHPic
       image = [FLTImagePickerImageUtil scaledImage:image
                                           maxWidth:maxWidth
                                          maxHeight:maxHeight
-                               isMetadataAvailable:originalAsset != nil];
+                               isMetadataAvailable:YES];
     }
 
     if (!originalAsset) {
